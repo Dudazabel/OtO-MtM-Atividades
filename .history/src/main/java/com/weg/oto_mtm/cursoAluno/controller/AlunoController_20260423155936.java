@@ -1,0 +1,45 @@
+package com.weg.oto_mtm.cursoAluno.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.weg.oto_mtm.cursoAluno.dto.aluno.AlunoCursoRespostaDTO;
+import com.weg.oto_mtm.cursoAluno.dto.aluno.AlunoRequisicaoDTO;
+import com.weg.oto_mtm.cursoAluno.dto.aluno.AlunoRespostaDTO;
+import com.weg.oto_mtm.cursoAluno.service.AlunoService;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/aluno")
+@RequiredArgsConstructor
+public class AlunoController {
+
+    private final AlunoService service;
+
+    @PostMapping
+    public ResponseEntity<AlunoRespostaDTO> cadastrarAluno(@Valid @RequestBody AlunoRequisicaoDTO aluno){
+        AlunoRespostaDTO alunoResp = service.cadastrarAluno(aluno);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(alunoResp);
+    }
+
+    @GetMapping("/idAluno/{id}")
+    public ResponseEntity<AlunoCursoRespostaDTO> buscarAluno(@PathVariable Long id){
+        return ResponseEntity.ok(service.buscarAluno(id));
+    }
+
+    @PostMapping("/idAluno/{id}/idCurso/{id}")
+    public ResponseEntity<AlunoCursoRespostaDTO> matricular(@PathVariable Long idAluno, @PathVariable Long idCurso){
+        AlunoCursoRespostaDTO alunoCurso = service.matricular(idAluno, idCurso);
+
+        return ResponseEntity.status(Htt)
+    }
+}
