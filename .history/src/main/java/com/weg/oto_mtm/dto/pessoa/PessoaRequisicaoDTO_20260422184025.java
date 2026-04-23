@@ -1,0 +1,11 @@
+package com.weg.oto_mtm.dto.pessoa;
+
+import com.weg.oto_mtm.dto.documento.DocumentoRequisicaoDTO;
+import com.weg.oto_mtm.model.Documento;
+
+public record PessoaRequisicaoDTO(
+    String nome,
+    DocumentoRequisicaoDTO documento
+) {
+
+}
