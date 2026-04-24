@@ -1,0 +1,8 @@
+package com.weg.oto_mtm.biblioteca.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LivroRepository {
+
+}

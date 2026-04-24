@@ -45,4 +45,8 @@ public class PlaylistService {
 
         return mapper.PlaylistMusicaRespostaDTO(repository.save(playlist));
     }
+
+    public void deletarPlaylist(Long id){
+        repository.deleteById(id);
+    }
 }
